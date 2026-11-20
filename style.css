@@ -1,0 +1,160 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --radius: 12px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+/* Dark mode: follows the OS unless the visitor has chosen a theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115;
+    --surface: #171a21;
+    --text: #e7e5e4;
+    --muted: #a8a29e;
+    --border: #272b34;
+    --accent: #818cf8;
+    --accent-soft: #1e2140;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --surface: #171a21;
+  --text: #e7e5e4;
+  --muted: #a8a29e;
+  --border: #272b34;
+  --accent: #818cf8;
+  --accent-soft: #1e2140;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1.0625rem/1.65 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { width: min(100% - 2rem, 56rem); margin-inline: auto; }
+section.wrap { padding-block: 3rem 1rem; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .6rem; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.3rem, 6vw, 3.6rem); letter-spacing: -0.03em; }
+h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; }
+h2 + h3, p + h3, .entry + h3, .skills + h3 { margin-top: 1.8rem; }
+p { margin: 0 0 1rem; }
+code { font-family: var(--mono); font-size: .9em; background: var(--accent-soft); padding: .1em .35em; border-radius: 6px; }
+.muted { color: var(--muted); }
+.small { font-size: .95rem; }
+.meta { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: #fff; padding: .6rem 1rem; z-index: 100; }
+.skip:focus { left: 0; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.bar { display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; }
+.brand { font-weight: 700; color: var(--text); text-decoration: none; margin-right: auto; }
+.nav { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+.nav a {
+  display: block; padding: .35rem .7rem; border-radius: 999px;
+  color: var(--muted); text-decoration: none; font-size: .95rem;
+}
+.nav a:hover { color: var(--text); background: var(--accent-soft); }
+.nav a[aria-current="true"] { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.icon-btn {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  width: 2.25rem; height: 2.25rem; border-radius: 50%; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0;
+}
+.icon-btn:hover { border-color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(3rem, 9vw, 6rem) 2rem; }
+.pill {
+  display: inline-block; margin-bottom: 1.2rem; padding: .3rem .8rem;
+  border-radius: 999px; background: var(--accent-soft); color: var(--accent);
+  font-size: .9rem; font-weight: 600;
+}
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 40rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.6rem; }
+.btn {
+  display: inline-block; padding: .55rem 1.1rem; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); text-decoration: none; font-weight: 600; font-size: .98rem;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { filter: brightness(1.08); }
+
+/* ---------- Content blocks ---------- */
+.entry { margin-bottom: 1.6rem; }
+.entry-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .1rem 1rem; margin-bottom: .3rem; }
+.entry ul { margin: .3rem 0 0; padding-left: 1.2rem; }
+.entry li { margin-bottom: .25rem; }
+
+.skills { margin: 0; display: grid; gap: .5rem; }
+.skills > div { display: grid; grid-template-columns: 9rem 1fr; gap: .75rem; }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; color: var(--muted); }
+
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-top: 1rem; }
+.card {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.25rem; transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgb(0 0 0 / .06); }
+.card-head { margin-bottom: .6rem; }
+.card-head h3 { margin: 0; }
+.card p { font-size: .98rem; color: var(--muted); }
+.card .links { margin: auto 0 0; display: flex; gap: 1rem; font-weight: 600; font-size: .95rem; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1rem; padding: 0; }
+.tags li { font-family: var(--mono); font-size: .78rem; padding: .15rem .55rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+.notes { padding-left: 1.2rem; }
+.notes li { margin-bottom: .4rem; }
+
+.site-footer { margin-top: 4rem; padding-block: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+.site-footer p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 40rem) {
+  .nav { display: none; } /* 5 links don't fit; the page is short enough to scroll */
+  .skills > div { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
+
+/* ---------- Print: clean one-page-ish output ---------- */
+@media print {
+  .site-header, .actions, .icon-btn, .skip { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .card, .entry { break-inside: avoid; }
+  a { color: #000; }
+}
