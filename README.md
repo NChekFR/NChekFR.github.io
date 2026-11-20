@@ -1,72 +1,82 @@
-# Personal site: setup guide
+# NChekFR.github.io
 
-A static site (plain HTML, CSS, and a little JavaScript). No build step, no frameworks, and it works on GitHub Pages as-is.
+Personal website of **Nikita Chekhovskoy**, a Computer Science and Mathematics student at the University of Toronto. It collects my projects, experience, resume, and handwritten lecture notes in one place.
 
-## What's here
+**Live site: [nchekfr.github.io](https://NChekFR.github.io/)**
 
-| Path | Purpose |
-|---|---|
-| `index.html` | All the content: hero, about, projects, experience, notes, contact |
-| `style.css` | Look and feel, with light and dark themes, print styles, and phone layout |
-| `script.js` | Dark mode toggle, active nav link, LaTeX rendering |
-| `files/resume.pdf` | **You add this.** The Resume button points here |
-| `files/notes/` | **You add this.** PDFs of your LaTeX notes |
-| `images/` | Project screenshots |
-| `.nojekyll` | Tells GitHub Pages to serve the files exactly as they are |
+I'm looking for software engineering internships and math or theoretical CS research opportunities for Summer 2027.
 
-## 1. Fill in the blanks
+## What's on the site
 
-Search the project for these strings and replace them:
+- **About:** education, coursework, awards, and skills.
+- **Projects:** hackathon and team projects, each with a short write-up and links to code, demos, or slides:
+  SecondChance, RateMyResume, Blocked In, an Online Casino Prototype, and a Networked Battleship Game.
+- **Experience:** leadership, tutoring, and teaching roles.
+- **Notes:** my handwritten lecture notes in group theory, complex analysis (in progress), analysis II, and topology.
+  Each course has a lecture index that links straight to the right page of the PDF.
+- **Resume:** a downloadable PDF.
 
-- `NChekFR` (in `index.html`, several places)
-- `YOUR-DEVPOST-LINK` and `REPO-NAME`
-- every `TODO` comment in `index.html`
+## How it's built
 
-Then add `files/resume.pdf`, and add real note PDFs under `files/notes/` (delete the note entries you don't have).
+The site is a small static page with no build step and no framework.
 
-## 2. Test locally
+- **HTML, CSS, and a little JavaScript.** Everything is in `index.html`, `style.css`, and `script.js`.
+- **Light and dark themes.** The site follows the visitor's system setting, and the toggle in the header overrides it (the choice is remembered in the browser).
+- **A four-color palette** defined as CSS variables at the top of `style.css`. Changing those four lines re-themes the whole site, and text contrast stays above the WCAG AA threshold in both modes.
+- **Responsive and accessible.** It works on phones, has a skip-to-content link, visible focus outlines, respects reduced-motion settings, and has a clean print layout.
+- **KaTeX** (loaded from a CDN) is available for typesetting math on the page.
+- **Hosted on GitHub Pages**, served from the `main` branch.
 
-Open `index.html` in a browser. To test it the way GitHub will serve it:
+## Repository layout
 
 ```
-python3 -m http.server 8000
+.
+├── index.html        # all page content
+├── style.css         # theme and layout
+├── script.js         # theme toggle, active nav link, math rendering
+├── files/
+│   ├── resume.pdf
+│   ├── slides.pdf    # slides for the casino project
+│   └── notes/        # lecture-note PDFs
+├── images/           # project screenshots
+├── .nojekyll         # tells GitHub Pages to serve files as they are
+└── README.md
 ```
 
-then visit http://localhost:8000.
+## Run it locally
 
-## 3. Publish on GitHub Pages
+You need Python 3 (any recent version). From the repository folder:
 
-1. On GitHub, create a **public** repository named exactly `NChekFR.github.io`.
-2. In this folder:
-   ```
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/NChekFR/NChekFR.github.io.git
-   git push -u origin main
-   ```
-3. In the repo, go to **Settings → Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**, choose **main** and **/ (root)**, and save.
-4. After a minute or two the site is live at `https://NChekFR.github.io`.
+```
+python -m http.server 8000
+```
 
-To update it later: edit, then `git add . && git commit -m "Update" && git push`.
+On Windows, use `py -m http.server 8000` if `python` isn't recognized. Then open `http://127.0.0.1:8000` in a browser. Press `Ctrl+C` in the terminal to stop the server.
 
-## 4. Polish your GitHub profile (recruiters look here too)
+## Deploy
 
-- **Pin 4–6 repositories** (profile → Customize your pins): SecondChance, RateMyResume, Blocked In, and your best course project.
-- **Give every pinned repo a good README**: one-line summary, a screenshot or GIF, how to run it, the tech used, and what *you* built.
-- **Add a description and topics** to each repo (the gear icon next to About).
-- **Create a profile README**: a repo named exactly `NChekFR` with a `README.md`. Put two lines about yourself and links to your site and LinkedIn.
-- **Set your profile photo, name, and bio**, and put your site URL in the Website field.
-- Keep commits regular. A mostly empty contribution graph is fine; a messy one with `final_v2_REAL` repos is not.
+Pushing to `main` publishes the site. In the repository's **Settings → Pages**, the source is set to **Deploy from a branch**, using `main` and the `/ (root)` folder.
 
-## 5. Use the site in applications
+## Maintaining the notes
 
-- Put the URL in your resume header next to your LinkedIn.
-- Add it to your LinkedIn (Contact info → Website, and Featured section).
-- Link it in the "website" field on application portals.
-- Keep **Last updated** in the footer current, and make sure `files/resume.pdf` matches the resume you send.
+The notes are handwritten in OneNote and published as PDFs, with a bookmark outline in each file and a matching lecture index on the site. The workflow is:
 
-## Privacy note
+1. Export each course's section from OneNote to PDF.
+2. Shrink the PDF with [Ghostscript](https://ghostscript.com/), which flattens each page to a moderate-resolution image:
+   `gs -sDEVICE=pdfimage24 -r<dpi> -dNOPAUSE -dBATCH "-sOutputFile=small.pdf" "big.pdf"`
+3. Add the chapter bookmarks with a small `pdfmark` file, one line per lecture:
+   `[ /Title (Day 1: Topic) /Page 1 /View [/Fit] /OUT pdfmark`
+   and run `gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH "-sOutputFile=notes.pdf" "small.pdf" "bookmarks.txt"`.
+4. Put the PDF in `files/notes/` and update that course's lecture index in `index.html`. Links use `file.pdf#page=N`.
 
-Your phone number is deliberately **not** on the site. Resume pages are public and get scraped. Keep it on the PDF you send to employers, or remove it from the PDF you host if you want to be extra careful.
+Whenever I re-export a course, the page numbers can shift, so the bookmarks and the lecture index need to be regenerated together.
+
+## About the notes
+
+- The notes are **my own personal lecture notes**, written for studying. They are not official course materials and aren't endorsed by any instructor or by the University of Toronto.
+- They are based on lectures and the standard references for each course, and **they may contain mistakes**.
+- If you're an instructor or author and would like something changed or taken down, please get in touch through the contact links on the site.
+
+## Contact
+
+The easiest way to reach me is through the [Contact section of the site](https://NChekFR.github.io/#contact), or on [LinkedIn](https://www.linkedin.com/in/nikita-chekhovskoy) and [GitHub](https://github.com/NChekFR).
