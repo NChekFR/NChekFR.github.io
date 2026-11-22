@@ -22,9 +22,9 @@ The site is a small static page with no build step and no framework.
 
 - **HTML, CSS, and a little JavaScript.** Everything is in `index.html`, `style.css`, and `script.js`.
 - **Light and dark themes.** The site follows the visitor's system setting, and the toggle in the header overrides it (the choice is remembered in the browser).
-- **A four-color palette** defined as CSS variables at the top of `style.css`. Changing those four lines re-themes the whole site, and text contrast stays above the WCAG AA threshold in both modes.
+- **A four-color palette** defined as CSS variables at the top of `style.css`. Changing those four lines re-themes the whole site. With the current palette, text contrast meets the WCAG AA threshold in both modes.
 - **Responsive and accessible.** It works on phones, has a skip-to-content link, visible focus outlines, respects reduced-motion settings, and has a clean print layout.
-- **KaTeX** (loaded from a CDN) is available for typesetting math on the page.
+- **KaTeX** (loaded from a CDN) typesets the math in the lecture titles.
 - **Hosted on GitHub Pages**, served from the `main` branch.
 
 ## Repository layout
@@ -38,7 +38,7 @@ The site is a small static page with no build step and no framework.
 │   ├── resume.pdf
 │   ├── slides.pdf    # slides for the casino project
 │   └── notes/        # lecture-note PDFs
-├── images/           # project screenshots
+├── images/           # social preview image (og.png) and project screenshots
 ├── .nojekyll         # tells GitHub Pages to serve files as they are
 └── README.md
 ```
