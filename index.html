@@ -6,12 +6,17 @@
   <title>Nikita Chekhovskoy — CS &amp; Math</title>
   <meta name="description" content="Nikita Chekhovskoy: Computer Science and Mathematics student at the University of Toronto. Projects, notes, and experience. Seeking Summer 2027 internships and research positions.">
   <meta name="theme-color" content="#d9f2d9">
+  <link rel="canonical" href="https://nchekfr.github.io/">
 
-  
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nikita Chekhovskoy — CS &amp; Math">
   <meta property="og:description" content="Projects, notes, and experience. Seeking Summer 2027 internships and research positions.">
-  <meta property="og:url" content="https://NChekFR.github.io/">
+  <meta property="og:url" content="https://nchekfr.github.io/">
+  <meta property="og:image" content="https://nchekfr.github.io/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nikita Chekhovskoy, Computer Science and Mathematics at the University of Toronto">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Apply saved theme before first paint to avoid a flash -->
   <script>
@@ -22,19 +27,19 @@
   </script>
 
   <link rel="stylesheet" href="style.css">
-  <!-- Math rendering for notes (write math as \( ... \) inline or \[ ... \] display) -->
+  <!-- KaTeX for math in the notes index -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
   <script defer src="script.js"></script>
 
-  <!-- Helps search engines show your name and links -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Nikita Chekhovskoy",
-    "url": "https://NChekFR.github.io/",
+    "url": "https://nchekfr.github.io/",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Toronto" },
     "sameAs": [
       "https://github.com/NChekFR",
@@ -87,12 +92,11 @@
       <p>
         I'm a third-year BSc student (Computer Science and Mathematics, graduating 2028) at the University of Toronto.
         Most of my project work comes from hackathons, where I've worked on backends, APIs, and AI integrations in small full-stack teams.
-        On the math side, my coursework includes real and complex analysis, algebra, topology, differential equations, and computational complexity and computablility.
+        On the math side, my coursework includes real and complex analysis, algebra, topology, differential equations, and computational complexity and computability.
       </p>
       <p>
         I'm currently looking for software engineering internships and math or theoretical CS research opportunities for 2027.
       </p>
-      <!-- TODO: add one sentence about what you want to work on next (a research area, a type of system, a problem you care about). -->
 
       <h3>Education</h3>
       <div class="entry">
@@ -102,18 +106,19 @@
         </div>
         <p>BSc, Computer Science and Mathematics · cGPA 3.8/4.0</p>
         <p class="small">
-          Coursework: Software Design, Data Structures &amp; Analysis, Theory of Computation, Analysis I &amp; II,
-          Algebra I &amp; II, Topology, Statistics, ODEs, Software Tools and Systems Programming,
-          Computational Complexity and Computability.
+          Coursework: Software Design, Data Structures &amp; Analysis, Algorithm Design, Analysis &amp; Complexity (in progress),
+          Theory of Computation, Analysis I &amp; II, Algebra I &amp; II, Topology, Statistics, ODEs,
+          Software Tools and Systems Programming, Computational Complexity and Computability.
         </p>
-        <p class="small"><strong>Awards:</strong> The Galois Award in Math (OSOTF) (2026), J. S. McLean Scholarship (2024, 2025, 2026)</p>
+        <p class="small"><strong>Awards:</strong> The Galois Award in Math (2026), J. S. McLean Scholarship (2024, 2025, 2026)</p>
       </div>
 
       <h3>Skills</h3>
       <dl class="skills">
-        <div><dt>Languages</dt><dd>Python, Java, JavaScript, C, C++, C#, MATLAB, HTML, CSS, Assembly</dd></div>
-        <div><dt>Tools</dt><dd>GitHub, Docker, Figma, Supabase, Gemini API, Microsoft Excel</dd></div>
-        <div><dt>Frameworks &amp; DBs</dt><dd>Spring Boot, FastAPI, Next.js, PostgreSQL</dd></div>
+        <div><dt>Languages</dt><dd>Java, Python, C, JavaScript, TypeScript</dd></div>
+        <div><dt>Also used</dt><dd>C++, C#, MATLAB, Assembly</dd></div>
+        <div><dt>Web &amp; DBs</dt><dd>HTML, CSS, Spring Boot, FastAPI, Next.js, PostgreSQL</dd></div>
+        <div><dt>Tools</dt><dd>GitHub, Docker, Figma, Supabase, Gemini API</dd></div>
       </dl>
     </section>
 
@@ -190,7 +195,7 @@
         <article class="card">
           <div class="card-head">
             <h3>Networked Battleship Game</h3>
-            <span class="meta">Team Project · C</span>
+            <span class="meta">Team project · C</span>
           </div>
           <p>
 Two-player Battleship game in C using TCP sockets and a client-server architecture. Implemented ship placement, turn management, hit detection, and network communication between players.
@@ -202,7 +207,6 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
           </p>
         </article>
       </div>
-      <!-- TODO: add a screenshot to each card: <img src="images/secondchance.png" alt="..." loading="lazy"> -->
     </section>
 
     <!-- EXPERIENCE -->
@@ -249,11 +253,10 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
     <section class="wrap" id="notes">
       <h2>Notes &amp; writing</h2>
       <p class="muted">
-        Course and reading notes, handwritten in One Note.
+        Course notes, handwritten in OneNote while studying. They are based on lectures and standard references and may contain mistakes; corrections are welcome by email.
       </p>
 
       <ul class="notes">
- <!-- Paste inside <ul class="notes"> in index.html, replacing the placeholder entries -->
         <li>
           <a href="files/notes/groups-notes.pdf">Group theory notes</a>
           <span class="muted">· Handwritten, 16 lectures</span>
@@ -270,7 +273,7 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
               <li><a href="files/notes/groups-notes.pdf#page=27">Day 8: More on Cosets and First Isomorphism Theorem</a> (p. 27)</li>
               <li><a href="files/notes/groups-notes.pdf#page=29">Day 9: All Isomorphism Theorems for Groups, Alternating Groups</a> (p. 29)</li>
               <li><a href="files/notes/groups-notes.pdf#page=34">Day 10: Composition Series, Solvable Groups and Orbit Stabilizer Theorem</a> (p. 34)</li>
-              <li><a href="files/notes/groups-notes.pdf#page=37">Day 11: Cayley's Theorem and Simplicity of A_n (n/ge 5)</a> (p. 37)</li>
+              <li><a href="files/notes/groups-notes.pdf#page=37">Day 11: Cayley's Theorem and Simplicity of \(A_n\) (\(n \ge 5\))</a> (p. 37)</li>
               <li><a href="files/notes/groups-notes.pdf#page=41">Day 12: Automorphisms and Sylow Theorems</a> (p. 41)</li>
               <li><a href="files/notes/groups-notes.pdf#page=43">Day 13: Sylow Theorems Cont. Direct Products, Commutators</a> (p. 43)</li>
               <li><a href="files/notes/groups-notes.pdf#page=47">Day 14: Commutators Cont., Semidirect Products</a> (p. 47)</li>
@@ -300,7 +303,7 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
               <li><a href="files/notes/complex-analysis-notes.pdf#page=31">Day 13: Residue Calculus and Integral Calculations</a> (p. 31)</li>
               <li><a href="files/notes/complex-analysis-notes.pdf#page=32">Day 14: Singularities at Infinity, Riemann Sphere and Meromorphic Functions on Riemann Sphere</a> (p. 32)</li>
               <li><a href="files/notes/complex-analysis-notes.pdf#page=34">Day 15: Argument Principle and Consequences</a> (p. 34)</li>
-              <li><a href="files/notes/complex-analysis-notes.pdf#page=35">Day 16: Open Mapping, Maximum Modulus Principal, Branches of Log and Simply Connected Domains</a> (p. 35)</li>
+              <li><a href="files/notes/complex-analysis-notes.pdf#page=35">Day 16: Open Mapping, Maximum Modulus Principle, Branches of Log and Simply Connected Domains</a> (p. 35)</li>
               <li><a href="files/notes/complex-analysis-notes.pdf#page=38">Day 17: Power Series of log, log(f(z))</a> (p. 38)</li>
               <li><a href="files/notes/complex-analysis-notes.pdf#page=39">Day 18: Conformal Maps</a> (p. 39)</li>
               <li><a href="files/notes/complex-analysis-notes.pdf#page=41">Day 19: Schwarz-Christoffel Formula</a> (p. 41)</li>
@@ -315,7 +318,7 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
             <ul>
               <li><a href="files/notes/analysis-notes.pdf#page=1">Day 1: Intro and Inner Product</a> (p. 1)</li>
               <li><a href="files/notes/analysis-notes.pdf#page=4">Day 2: Linear alg recall and lin. Transf.</a> (p. 4)</li>
-              <li><a href="files/notes/analysis-notes.pdf#page=7">Day 3: Topology of Rn</a> (p. 7)</li>
+              <li><a href="files/notes/analysis-notes.pdf#page=7">Day 3: Topology of \(\mathbb{R}^n\)</a> (p. 7)</li>
               <li><a href="files/notes/analysis-notes.pdf#page=11">Day 4: Functions and Continuity</a> (p. 11)</li>
               <li><a href="files/notes/analysis-notes.pdf#page=15">Day 5: Continuity and Compactness</a> (p. 15)</li>
               <li><a href="files/notes/analysis-notes.pdf#page=18">Day 6: Compactness</a> (p. 18)</li>
@@ -394,12 +397,12 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
             <ul>
               <li><a href="files/notes/topology-notes.pdf#page=1">Day 1: Intro and Topology def.</a> (p. 1)</li>
               <li><a href="files/notes/topology-notes.pdf#page=3">Day 2: Recap and Basis of a Topology</a> (p. 3)</li>
-              <li><a href="files/notes/topology-notes.pdf#page=8">Day 3: Topologies on R and Interval Topologies</a> (p. 8)</li>
+              <li><a href="files/notes/topology-notes.pdf#page=8">Day 3: Topologies on \(\mathbb{R}\) and Interval Topologies</a> (p. 8)</li>
               <li><a href="files/notes/topology-notes.pdf#page=11">Day 4: Subspace, Product, Closure and Interior</a> (p. 11)</li>
               <li><a href="files/notes/topology-notes.pdf#page=15">Day 5: Neighbourhoods, Limit points, Hausdorff</a> (p. 15)</li>
               <li><a href="files/notes/topology-notes.pdf#page=19">Day 6: Continuity Equivalences</a> (p. 19)</li>
               <li><a href="files/notes/topology-notes.pdf#page=21">Day 7: Quotient, Continuous and Pasting Lemma</a> (p. 21)</li>
-              <li><a href="files/notes/topology-notes.pdf#page=26">Day 8: Box and Infinite Product Topologies and some unintuitive</a> (p. 26)</li>
+              <li><a href="files/notes/topology-notes.pdf#page=26">Day 8: Box and Infinite Product Topologies and some Unintuitive Consequences</a> (p. 26)</li>
               <li><a href="files/notes/topology-notes.pdf#page=30">Day 9: First Countability axiom and Bounded metric spaces</a> (p. 30)</li>
               <li><a href="files/notes/topology-notes.pdf#page=34">Day 10: Connected Spaces</a> (p. 34)</li>
               <li><a href="files/notes/topology-notes.pdf#page=37">Day 11: Linear Continuum and Bounded Metric Spaces</a> (p. 37)</li>
@@ -418,22 +421,18 @@ Two-player Battleship game in C using TCP sockets and a client-server architectu
               <li><a href="files/notes/topology-notes.pdf#page=85">Day 24: Nowhere Dense Sets and Baire Spaces</a> (p. 85)</li>
               <li><a href="files/notes/topology-notes.pdf#page=88">Day 25: Intro to Dimension Theory</a> (p. 88)</li>
               <li><a href="files/notes/topology-notes.pdf#page=91">Day 26: Inductive Dimension and Intro to Algebraic Topology</a> (p. 91)</li>
-              <li><a href="files/notes/topology-notes.pdf#page=94">Day 27: Homotopy and Path Homotopy and How Their Classes</a> (p. 94)</li>
+              <li><a href="files/notes/topology-notes.pdf#page=94">Day 27: Homotopy and Path Homotopy and How Their Classes Form a Group</a> (p. 94)</li>
               <li><a href="files/notes/topology-notes.pdf#page=97">Day 28: Fundamental Group Contractibility of Free Loops And Functoriality</a> (p. 97)</li>
-              <li><a href="files/notes/topology-notes.pdf#page=100">Day 29: Fundamental Group of S1 Isomorphic to Integers</a> (p. 100)</li>
-              <li><a href="files/notes/topology-notes.pdf#page=103">Day 30: Fundamental Group of S1 Isomorphic to Integers Cont</a> (p. 103)</li>
+              <li><a href="files/notes/topology-notes.pdf#page=100">Day 29: Fundamental Group of \(S^1\) Isomorphic to Integers</a> (p. 100)</li>
+              <li><a href="files/notes/topology-notes.pdf#page=103">Day 30: Fundamental Group of \(S^1\) Isomorphic to Integers Cont.</a> (p. 103)</li>
               <li><a href="files/notes/topology-notes.pdf#page=107">Day 31: Application of Fundamental Groups</a> (p. 107)</li>
               <li><a href="files/notes/topology-notes.pdf#page=110">Day 32: Seifert-Van Kampen</a> (p. 110)</li>
             </ul>
           </details>
         </li>
       </ul>
-      <!--
-      <p class="small muted">
-        Math renders inline too, for example: \( \sum_{i=1}^{n} i = \binom{n+1}{2} \).
-      </p>
-      -->
     </section>
+
     <!-- CONTACT -->
     <section class="wrap" id="contact">
       <h2>Contact</h2>

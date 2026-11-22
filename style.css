@@ -1,6 +1,6 @@
 /* ---------- Design tokens ---------- */
 :root {
-  /* Theme palette (light). Edit these four to re-theme the whole site. */
+  /* Theme palette (light) */
   --color-primary: hsl(120, 50%, 90%);
   --color-secondary: hsl(120, 50%, 10%);
   --color-tertiary: hsl(180, 80%, 20%);
@@ -133,6 +133,7 @@ code { font-family: var(--mono); font-size: .9em; background: var(--accent-soft)
 .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgb(0 0 0 / .06); }
 .card-head { margin-bottom: .6rem; }
 .card-head h3 { margin: 0; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin-bottom: .9rem; border: 1px solid var(--border); border-radius: calc(var(--radius) - 4px); }
 .card p { font-size: .98rem; color: var(--muted); }
 .card .links { margin: auto 0 0; display: flex; gap: 1rem; font-weight: 600; font-size: .95rem; }
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1rem; padding: 0; }
