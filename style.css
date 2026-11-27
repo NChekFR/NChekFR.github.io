@@ -23,17 +23,6 @@
   color-scheme: light;
 }
 
-/* Dark mode: follows the OS unless the visitor has chosen a theme */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-primary: hsl(120, 50%, 10%);
-    --color-secondary: hsl(120, 50%, 90%);
-    --color-tertiary: hsl(180, 80%, 80%);
-    --color-accent: hsl(60, 80%, 80%);
-    --surface: color-mix(in srgb, var(--color-primary) 92%, var(--color-secondary));
-    color-scheme: dark;
-  }
-}
 :root[data-theme="dark"] {
   --color-primary: hsl(120, 50%, 10%);
   --color-secondary: hsl(120, 50%, 90%);

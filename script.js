@@ -3,24 +3,30 @@
 
   var root = document.documentElement;
 
-  /* ---- Theme toggle (remembers choice; otherwise follows the OS) ---- */
+  /* ---- Theme toggle (remembers choice; defaults to light) ---- */
   var btn = document.getElementById('theme-toggle');
   function currentTheme() {
     var set = root.getAttribute('data-theme');
-    if (set) return set;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return set || 'light';
   }
-  function syncButton() {
-    if (btn) btn.setAttribute('aria-pressed', String(currentTheme() === 'dark'));
+  function syncAppearance() {
+    var theme = currentTheme();
+    var icons = document.querySelectorAll('[data-light][data-dark]');
+    Array.prototype.forEach.call(icons, function (icon) {
+      icon.setAttribute('href', icon.getAttribute('data-' + theme));
+    });
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0d260d' : '#d9f2d9');
+    if (btn) btn.setAttribute('aria-pressed', String(theme === 'dark'));
   }
+  syncAppearance();
   if (btn) {
     btn.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
-      syncButton();
+      syncAppearance();
     });
-    syncButton();
   }
 
   /* ---- Footer year ---- */
